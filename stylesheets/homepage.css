@@ -1,3 +1,69 @@
 body {
-    background-color: bisque;
+    background-color: #f3f7fe;
 }
+
+.container{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    padding-top: 0px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.trip-icon{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 100px;
+    flex-wrap: wrap;
+}
+
+.trip-icon:hover svg{
+    display:block;
+}
+
+.trip-icon svg{
+    display: none;
+}
+
+/* .remove-button */
+
+.trip-icon-outer {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+
+  }
+
+.trip-icon-inner {
+    position:absolute;
+    height: 60px;
+    width: 60px;
+    background-color: lightblue;
+    border-radius: 50%;
+    display: inline-block;
+    top: 20%;
+    left: 20%;
+  }
+
+  .trip-icon-text-box{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .trip-icon-text{
+      padding: 0px;
+      margin: 0px;
+      font-size: x-large;
+      color:white;
+  }
