@@ -1,4 +1,5 @@
 
+
 <!-- 1. create HTML5 doctype -->
 <!DOCTYPE html>
 <html>
@@ -34,12 +35,97 @@
   
   <!-- include your CSS -->
   <link rel="stylesheet" href="./stylesheets/trips_details.css" /> 
+  <link rel="stylesheet" href="./stylesheets/styles.css" />
        
 </head>
 
 <body>
-  <p>trips_details</p>
+  <header>
+    <nav class="navbar navbar-expand-md bg-light navbar-light">
+      <a class="navbar-brand" href="#">Road Trip Planner</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      
+      <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">   
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Trips</a>
+          </li>              
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shared with Me</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+
+           </div>
+          </li>                            
+          <li class="nav-item"> 
+            <a class="nav-link" href="#">Trash</a>
+          </li>
+          
+        </ul>
+      </div>  
+    </nav>
+  </header>
   <!-- Page Content goes here -->
+
+  <h1>Recent Vacation</h1>
+
+  <div class="main-content" >
+    <div class="main-content-body">
+      <div>
+        <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/1024px-Flat_tick_icon.svg.png" width="100%" height="100%" />
+
+        </div>
+        <p>Home</p>
+      </div>
+
+      <div>
+        <div>
+
+        </div>
+        <p>New Jersey</p>
+      </div>
+
+      <div>
+        <div>
+
+        </div>
+        <p>N.J. Airport</p>
+      </div>
+
+      <div>
+        <div>
+
+        </div>
+        <p>Miami Airport</p>
+      </div>
+
+      <div>
+        <div>
+
+        </div>
+        <p>Miami City</p>
+      </div>
+
+      <div>
+        <div>
+
+        </div>
+        <p>Miami South Beach</p>
+      </div>
+
+      
+    </div>
+    <div class="main-content-card">
+      <div>
+        <p>New Jersey</p>
+        <button>Remove</button>
+      </div>
+      <textarea placeholder="Add notes ..."></textarea>
+    </div>
+  </div>
+  <button>Add a destination</button>
 
 
 
