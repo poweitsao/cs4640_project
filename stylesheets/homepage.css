@@ -13,6 +13,14 @@ body {
     flex-wrap: wrap;
 }
 
+.trip-icon-grid{
+    display: flex;
+    width: 80%;
+    height: 100px;
+    justify-content: space-around;
+    padding-top: 40px;
+}
+
 .trip-icon{
     display:flex;
     justify-content: center;
@@ -22,12 +30,25 @@ body {
     flex-wrap: wrap;
 }
 
+.trip-icon a{
+    color: black;
+    text-decoration: none;
+
+}
+
+.trip-icon-label{
+    display:flex;
+    justify-content: center;
+    margin: 0px;
+}
+
 .trip-icon:hover svg{
     display:block;
 }
 
 .trip-icon svg{
     display: none;
+    width: 30px;
 }
 
 /* .remove-button */
@@ -35,7 +56,7 @@ body {
 .trip-icon-outer {
     height: 100px;
     width: 100px;
-    background-color: white;
+    background-color: lightblue;
     border-radius: 50%;
     display: inline-block;
     position: relative;
@@ -46,7 +67,7 @@ body {
     position:absolute;
     height: 60px;
     width: 60px;
-    background-color: lightblue;
+    background-color: white;
     border-radius: 50%;
     display: inline-block;
     top: 20%;
@@ -65,5 +86,5 @@ body {
       padding: 0px;
       margin: 0px;
       font-size: x-large;
-      color:white;
+      color:lightblue;
   }
