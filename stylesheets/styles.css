@@ -32,9 +32,6 @@
   
   
   
-  
-  
-  
   /* Main Content Styles */
   .main-content-body {
     display: grid;
@@ -62,12 +59,10 @@
   
   .main-content {
     display: flex;
-    height: 400px;
   }
   
   .main-content .main-content-body {
     flex-grow: 1;
-    overflow-y: scroll;
   }
   
   .main-content .main-content-card {
@@ -99,4 +94,34 @@
   }
   .main-content-card > textarea {
     flex-grow: 1;
+  }
+  
+  .main-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-wrapper .main-content {
+    flex-grow: 1;
+  }
+
+  .text-center-button {
+    margin-left: 29.5%;
+  }
+  
+  
+  /* Popup modal */
+  .popup-modal {
+    position: fixed;
+    left: 50%;
+    top: 70%;
+    margin-right: 25%;
+    transform: translate(-50%, -50%);
+    min-height: max-content;
+    min-width: max-content;
+    justify-content: center;
+  
+    border: 3px solid black;
+  }
+  .hidden {
+    display: none;
   }
