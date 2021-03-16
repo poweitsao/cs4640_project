@@ -1,9 +1,10 @@
-<!-- 1. create HTML5 doctype -->
+<!-- Contributors: Po Wei Tsao (pt5rsx), Qasim Qasim (qq4fd) -->
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">  
-  
+  <meta charset="UTF-8">
+
   <!-- 2. include meta tag to ensure proper rendering and touch zooming -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- 
@@ -13,140 +14,146 @@
   width=device-width sets the width of the page to follow the screen-width
   initial-scale=1 sets the initial zoom level when the page is first loaded   
   -->
-  
+
   <meta name="author" content="your name">
-  <meta name="description" content="include some description about your page">  
-    
+  <meta name="description" content="include some description about your page">
+
   <title>Bootstrap example</title>
-  
+
   <!-- 3. link bootstrap -->
   <!-- if you choose to use CDN for CSS bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
   <!-- 
   Use a link tag to link an external resource.
   A rel (relationship) specifies relationship between the current document and the linked resource. 
   -->
-  
+
   <!-- if you choose to download bootstrap and host it locally -->
-  <!-- <link rel="stylesheet" href="path-to-your-file/bootstrap.min.css" /> --> 
-  
+  <!-- <link rel="stylesheet" href="path-to-your-file/bootstrap.min.css" /> -->
+
   <!-- include your CSS -->
-  <link rel="stylesheet" href="your-custom.css" /> 
-       
+  <link rel="stylesheet" href="your-custom.css" />
+
 </head>
 
 <body>
   <header>
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">Qasim's POTD!</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">   
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>              
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Design</a>
-            <a class="dropdown-item" href="#">Development</a>
-            <a class="dropdown-item" href="#">Consulting</a>
-         </div>
-        </li>                            
-        <li class="nav-item"> 
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-        
-      </ul>
-    </div>  
-  </nav>
-</header>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <a class="navbar-brand" href="#">Qasim's POTD!</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-<div class="jumbotron">
+      <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Design</a>
+              <a class="dropdown-item" href="#">Development</a>
+              <a class="dropdown-item" href="#">Consulting</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="jumbotron">
     <div class="container">
-        <h1>One line at a time</h1>
-        <p>I love learning with Upsorn</p>
+      <h1>One line at a time</h1>
+      <p>I love learning with Upsorn</p>
 
-        <p>
-            <a class="btn btn-primary btn-lg" role="button">Learn more</a>
-        </p>
+      <p>
+        <a class="btn btn-primary btn-lg" role="button">Learn more</a>
+      </p>
     </div>
-</div>
+  </div>
 
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <h3>Showcase #1</h3>
-                <p>Hi! My name is Qasim Qasim!</p>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Showcase #1</h3>
+        <p>Hi! My name is Qasim Qasim!</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Showcase #2</h3>
+        <p>Hi! My name is Po Wang!</p>
+      </div>
     </div>
 
+  </div>
 
-    <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h3>Showcase #2</h3>
-                    <p>Hi! My name is Po Wang!</p>
-                </div>
-            </div>
-    
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Showcase #3</h3>
+        <p>We are working on a web app together!</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Get in touch!</h3>
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Name" name="yourname">
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Email Address" name="email">
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <input class="btn btn-primary btn-block" type="submit" value="Send">
         </div>
 
-    <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h3>Showcase #3</h3>
-                    <p>We are working on a web app together!</p>
-                </div>
-            </div>
-        </div>
-
-
-   <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h3>Get in touch!</h3>
-                    <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Name" name="yourname">
-                    </div>
-                    <div class="form-group">
-                            <input type="email" placeholder="Email Address" name="email">
-                    </div>
-                    <div class="form-group">
-                            <textarea class="form-control" rows="4"></textarea>
-                    </div>
-                    <div class="form-group">
-                            <input class="btn btn-primary btn-block" type="submit" value="Send">
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-</div>
+      </div>
+    </div>
+  </div>
+  </div>
 
 
 
 
   <!-- CDN for JS bootstrap -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    
-  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+
+
   <!-- for local -->
   <!-- <script src="jquery.min.js"></script> -->
   <!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
-  
 
-  <!--  uncomment the following code when customizing your page -->   
+
+  <!--  uncomment the following code when customizing your page -->
   <!-- <script>
   // document ready event is fired when DOM has been loaded 
   $(document).ready(function() {
@@ -154,7 +161,8 @@
      $('.header').height($(window).height()/2.5);     
    })
   </script>  -->
-  
-  
+
+
 </body>
+
 </html>
