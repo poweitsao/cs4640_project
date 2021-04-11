@@ -39,9 +39,18 @@
 </head>
 
 <body>
+<?php 
+    session_start();
+    if (!isset($_SESSION["user_email"])){
+      $_SESSION["login_error_message"] = "Please login to continue.";
+      header("Location: ./landing_page.php");
+    }
+     ?>
   <header>
     <nav class="navbar navbar-expand-md bg-light navbar-light">
       <a class="navbar-brand" href="#">Road Trip Planner</a>
+      <text class="nav-link" >Logged in as <?php echo $_SESSION["user_email"];?></text>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -50,10 +59,13 @@
       <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link" href="homepage.html">My Trips</a>
+            <a class="nav-link" href="homepage.php">My Trips</a>
           </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="landing_page.php">Landing Page</a>
+          </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="landing_page.html">Landing Page</a>
+            <a class="nav-link" href="logout.php">Log out</a>
           </li>
 
         </ul>
@@ -66,7 +78,7 @@
     <div class="trip-icon-grid">
 
       <div class="trip-icon">
-        <a href="trip_details.html">
+        <a href="trip_details.php">
           <span class="trip-icon-outer">
             <span class="trip-icon-inner" onclick="clickHandler()">
               <div class="trip-icon-text-box">
@@ -89,7 +101,7 @@
       </div>
 
       <div class="trip-icon">
-        <a href="trip_details.html">
+        <a href="trip_details.php">
           <span class="trip-icon-outer">
             <span class="trip-icon-inner" onclick="clickHandler()">
               <div class="trip-icon-text-box">
@@ -112,7 +124,7 @@
       </div>
 
       <div class="trip-icon">
-        <a href="trip_details.html">
+        <a href="trip_details.php">
           <span class="trip-icon-outer">
             <span class="trip-icon-inner" onclick="clickHandler()">
               <div class="trip-icon-text-box">
@@ -135,7 +147,7 @@
       </div>
 
       <div class="trip-icon">
-        <a href="trip_details.html">
+        <a href="trip_details.php">
           <span class="trip-icon-outer">
             <span class="trip-icon-inner" onclick="clickHandler()">
               <div class="trip-icon-text-box">
@@ -156,9 +168,10 @@
             d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
         </svg>
       </div>
+      
     </div>
 
-
+    
 
 
 
@@ -199,7 +212,6 @@
      $('.header').height($(window).height()/2.5);     
    })
   </script>  -->
-
 
 
 </body>
