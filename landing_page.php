@@ -35,6 +35,9 @@
 
   <!-- include your CSS -->
   <link rel="stylesheet" href="./stylesheets/landing_page.css" />
+  <style>
+    <?php include './stylesheets/landing_page.css'; ?>
+  </style>
 
 </head>
 
@@ -73,78 +76,140 @@
         src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1008&q=80">
     </div>
 
-
-    <form onsubmit="return checkCredentials()" action="./php/login.php" method="post">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" name="email" class="form-control" id="email-input" aria-describedby="emailHelp"
-          placeholder="Enter email">
-      </div>
-      <div class="feedback">
-        <div id="email-msg"></div>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" name="password" class="form-control" id="password-input" placeholder="Password">
-      </div>
-      <div class="feedback">
-        <div id="password-msg">
-        <?php 
-          if(isset($_SESSION['login_error_message'])) {
-            
-            echo $_SESSION['login_error_message'];
-              
-            
-          }
-          ?>
+    <div id="login-signup-panel" style="display: block">
+      <form id="login-signup-panel-form" onsubmit="return checkLoginCredentials()" action="./php/login.php" method="post">
+      <h3 id="login-signup-panel-title">Log in</h3>
+      <div class="signup-msg">
+            <?php 
+              if(isset($_SESSION['signup_success'])) {
+                if( $_SESSION["signup_success"]){
+                  echo "<div style='color: green'>" . "Sign up success! Please log in." . "</div>";
+                } else{
+                  echo "<div style='color: red'>" . $_SESSION['signup_error_message'] . "</div>";
+                }
+              }
+              ?>
         </div>
-      </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" name="email" class="form-control" id="email-input" aria-describedby="emailHelp"
+            placeholder="Enter email">
+        </div>
+        <div class="feedback">
+          <div id="email-msg"></div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" name="password" class="form-control" id="password-input" placeholder="Password">
+        </div>
+        <div class="feedback">
+          <div id="password-msg">
+          <?php 
+            if(isset($_SESSION['login_error_message'])) {
+              
+              echo $_SESSION['login_error_message'];
+            }
+            ?>
+          </div>
+        </div>
 
-      <div class="submit-button">
-        <button type="submit" class="btn btn-primary" >Sign in</button>
-      </div>
-    </form>
+        <div class="submit-button">
+          <button id="login-button" type="submit" class="btn btn-primary" >Log in</button>
+        </div>
+        <div class="submit-button">
+          <button id="signup-button" type="button" class="btn btn-secondary" onclick="togglePanel()">Sign up</button>
+        </div>
+
+      </form>
+    </div>
+
+
+    <!-- <div id="signup-panel" style="display: none">      
+      <form onsubmit="return checkLoginCredentials()" action="./php/login.php" method="post">
+      <h3>Sign up</h3>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" name="email" class="form-control" id="email-input" aria-describedby="emailHelp"
+            placeholder="Enter email">
+        </div>
+        <div class="feedback">
+          <div id="email-msg"></div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" name="password" class="form-control" id="password-input" placeholder="Password">
+        </div>
+
+
+        <div class="feedback">
+          <div id="password-msg">
+          <?php 
+            if(isset($_SESSION['login_error_message'])) {
+              
+              echo $_SESSION['login_error_message'];
+            }
+            ?>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Confirm Password</label>
+          <input type="password" name="password-confirmation" class="form-control" id="password-input-confirmation" placeholder="Confirm Password">
+        </div>
+
+        <div class="submit-button">
+          <button type="button" class="btn btn-secondary" onclick="togglePanel()">Log in</button>
+        </div>
+        <div class="submit-button">
+          <button type="submit" class="btn btn-primary" >Sign up</button>
+        </div>
+
+      </form>
+    </div>   -->
+
   </div>
 
   <!-- Page Content goes here -->
 
   <script>
-    function checkPassword() {
-      var msg = document.getElementById("password-msg");
-      if (this.value.length == 0) {
-        msg.textContent = "Password cannot be empty";
 
-      } else if (this.value.length < 3) {
-        msg.textContent = "Password cannot be shorter than 3 characters";
-      } else
-        msg.textContent = "";
-    }
+    var addEventListenersToInput = function(){
+      function checkPassword() {
+        var msg = document.getElementById("password-msg");
+        if (this.value.length == 0) {
+          msg.textContent = "Password cannot be empty";
 
-    var password = document.getElementById("password-input");
-    password.addEventListener('blur', checkPassword, false);
+        } else if (this.value.length < 3) {
+          msg.textContent = "Password cannot be shorter than 3 characters";
+        } else
+          msg.textContent = "";
+      }
 
-    function checkEmail() {
-      var msg = document.getElementById("email-msg");
+      var password = document.getElementById("password-input");
+      password.addEventListener('blur', checkPassword, false);
 
-      var pattern = new RegExp(".{1,}@.{1,}");
-      var match_test = pattern.test(this.value);
-      console.log(this.value)
-      if (match_test) {
-        msg.textContent = "";
-      } else {
-        msg.textContent = "Enter a valid email";
+      function checkEmail() {
+        var msg = document.getElementById("email-msg");
+
+        var pattern = new RegExp(".{1,}@.{1,}");
+        var match_test = pattern.test(this.value);
+        console.log(this.value)
+        if (match_test) {
+          msg.textContent = "";
+        } else {
+          msg.textContent = "Enter a valid email";
+        }
+      }
+
+      var email = document.getElementById("email-input");
+      email.addEventListener('blur', checkEmail, false);
+      var login = function () {
       }
     }
+    // this.addEventListenersToInput = addEventListenersToInput
+    addEventListenersToInput()
 
-    var email = document.getElementById("email-input");
-
-    email.addEventListener('blur', checkEmail, false);
-
-    var login = function () {
-
-    }
-
-    var checkCredentials = function () {
+    var checkLoginCredentials = function () {
       var email = document.getElementById("email-input");
       var pattern = new RegExp(".{1,}@.{1,}");
       var emailValid = pattern.test(email.value);
@@ -155,13 +220,71 @@
       if (password.value.length >= 3) {
         passwordValid = true
       }
-
-      // if (emailValid && passwordValid) {
-      //   window.location.href = "homepage.php";
-
-      // }
       console.log(emailValid && passwordValid);
       return (emailValid && passwordValid);
+    }
+
+    var checkSignupInput = function () {
+      var password = document.getElementById("password-input");
+      var passwordConfirmation = document.getElementById("password-input-confirmation");
+      return (password.value === passwordConfirmation.value && checkLoginCredentials())
+    }
+
+    var togglePanel = function () {
+      // var signUpPanel = document.getElementById("signup-panel");
+      var panel = document.getElementById("login-signup-panel");
+      var panelTitle = document.getElementById("login-signup-panel-title");
+      var panelForm = document.getElementById("login-signup-panel-form");
+      var panelFormURL = panelForm.action.toString()
+      var loginButton = document.getElementById("login-button");
+      var signUpButton = document.getElementById("signup-button");
+
+      console.log(loginButton.className)
+
+      if (panelFormURL.substr(panelFormURL.length - 9) === "login.php"){
+        panelForm.action = "./php/signup.php";
+        panelTitle.textContent = "Sign up";
+        loginButton.className = "btn btn-secondary";
+        signUpButton.className = "btn btn-primary";
+
+        loginButton.setAttribute("onclick","togglePanel();");
+        loginButton.setAttribute("type","button");
+
+        signUpButton.setAttribute("type", "submit");
+        signUpButton.removeAttribute("onclick");
+
+
+
+      } else if (panelFormURL.substr(panelFormURL.length - 10) === "signup.php"){
+        panelForm.action = "./php/login.php";
+        panelTitle.textContent = "Log in";
+        signUpButton.className = "btn btn-secondary";
+        loginButton.className = "btn btn-primary";
+
+        signUpButton.setAttribute("onclick", "togglePanel();");
+        signUpButton.setAttribute("type","button");
+
+        loginButton.setAttribute("type", "submit");
+        loginButton.removeAttribute("onclick");
+
+
+
+      }
+
+
+      // console.log(signUpPanel.style["display"])
+      // if (signUpPanel.style["display"] == "block"){
+      //   signUpPanel.style["display"] = "none";
+      // } else if (signUpPanel.style["display"] == "none"){
+      //   signUpPanel.style["display"] = "block";
+      // }
+
+      // if (loginPanel.style["display"] == "block"){
+      //   loginPanel.style["display"] = "none";
+      // } else if (loginPanel.style["display"] == "none"){
+      //   loginPanel.style["display"] = "block";
+      // }
+
     }
 
   </script>

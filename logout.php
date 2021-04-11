@@ -1,5 +1,5 @@
 <!-- Po Wei Tsao (pt5rsx), Qasim Qasim (qq4fd) -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -9,7 +9,7 @@
   <title>PHP State Maintenance (Cookies)</title>    
 </head>
 <body>
-<?php session_start()?>
+
   <div class="container">
     <h1>Road Trip Planner</h1>
     Successfully logged out 
@@ -18,18 +18,18 @@
         <input type="submit" value="Log in" class="btn btn-dark" />
       </form>
     </div> 
-  </div>
+  </div> -->
 
    
 
 <?php 
-
-  if(count($_SESSION) > 0){
-    foreach ($_SESSION as $k => $v){
-      unset($_SESSION[$k]);
+    session_start();
+    if(count($_SESSION) > 0){
+        foreach ($_SESSION as $k => $v){
+        unset($_SESSION[$k]);
+        }
+        session_destroy();    
     }
-    session_destroy();    
-  }
+    header("Location: landing_page.php");
 ?>
-</body>
-</html>
+
