@@ -25,6 +25,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
+  <style>
+    <?php include './stylesheets/homepage.css'; ?>
+  </style>
+
+
   <!-- 
   Use a link tag to link an external resource.
   A rel (relationship) specifies relationship between the current document and the linked resource. 
@@ -171,7 +176,10 @@
       
     </div>
 
-    
+    <div>
+      <button class="btn btn-primary">Add a new Trip</button>
+    </div>
+
 
 
 

@@ -36,7 +36,10 @@
   <!-- include your CSS -->
   <link rel="stylesheet" href="./stylesheets/trips_details.css" />
   <link rel="stylesheet" href="./stylesheets/styles.css" />
-  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    <?php include './stylesheets/trips_details.css'; ?>
+    <?php include './stylesheets/styles.css'; ?>
+  </style>
 
 </head>
 
