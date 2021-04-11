@@ -39,7 +39,13 @@
 </head>
 
 <body>
+<?php 
+    session_start();
+    if (isset($_SESSION["user_email"])){
+      header("Location: ./homepage.php");
+    }
 
+     ?>
   <header>
     <nav class="navbar navbar-expand-md bg-light navbar-light">
       <a class="navbar-brand" href="#">Road Trip Planner</a>
@@ -48,14 +54,14 @@
       </button>
 
 
-      <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+      <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="homepage.html">My Trips</a>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="homepage.php">My Trips</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="landing_page.html">Landing Page</a>
-          </li>
+            <a class="nav-link" href="landing_page.php">Landing Page</a>
+          </li> -->
 
         </ul>
       </div>
@@ -66,10 +72,12 @@
       <img
         src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1008&q=80">
     </div>
-    <form>
+
+
+    <form onsubmit="return checkCredentials()" action="./php/login.php" method="post">
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp"
+        <input type="email" name="email" class="form-control" id="email-input" aria-describedby="emailHelp"
           placeholder="Enter email">
       </div>
       <div class="feedback">
@@ -77,14 +85,23 @@
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="password-input" placeholder="Password">
+        <input type="password" name="password" class="form-control" id="password-input" placeholder="Password">
       </div>
       <div class="feedback">
-        <div id="password-msg"></div>
+        <div id="password-msg">
+        <?php 
+          if(isset($_SESSION['login_error_message'])) {
+            
+            echo $_SESSION['login_error_message'];
+              
+            
+          }
+          ?>
+        </div>
       </div>
 
       <div class="submit-button">
-        <button type="button" class="btn btn-primary" onclick="checkCredentials()">Sign in</button>
+        <button type="submit" class="btn btn-primary" >Sign in</button>
       </div>
     </form>
   </div>
@@ -123,6 +140,10 @@
 
     email.addEventListener('blur', checkEmail, false);
 
+    var login = function () {
+
+    }
+
     var checkCredentials = function () {
       var email = document.getElementById("email-input");
       var pattern = new RegExp(".{1,}@.{1,}");
@@ -135,10 +156,12 @@
         passwordValid = true
       }
 
-      if (emailValid && passwordValid) {
-        window.location.href = "homepage.html";
+      // if (emailValid && passwordValid) {
+      //   window.location.href = "homepage.php";
 
-      }
+      // }
+      console.log(emailValid && passwordValid);
+      return (emailValid && passwordValid);
     }
 
   </script>
