@@ -6,7 +6,7 @@
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
  }
  // Form the SQL query (an INSERT query)
- $sql="SELECT * FROM users WHERE email='$_POST[email]' AND password='$_POST[password]'";
+ $sql="SELECT * FROM users WHERE userID='$_POST[email]' AND password='$_POST[password]'";
 
 
  if (!mysqli_query($con,$sql)) {
@@ -27,8 +27,8 @@ if (isset($_SESSION["signup_success"])){
 if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
     // echo $row["email"];
-    $_SESSION["user_email"] = $row["email"];
-    // echo $_SESSION["user_email"];
+    $_SESSION["userID"] = $row["userID"];
+    // echo $_SESSION["userID"];
     if (isset($_SESSION["login_error_message"])){
         unset($_SESSION["login_error_message"]);
     }

@@ -6,7 +6,7 @@
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
  }
  // Form the SQL query (an INSERT query)
- $sql="SELECT * FROM users WHERE email='$_POST[email]'";
+ $sql="SELECT * FROM users WHERE userID='$_POST[email]'";
 
 
  if (!mysqli_query($con,$sql)) {
@@ -17,8 +17,8 @@
  session_start();
 if (mysqli_num_rows($result) == 0){
 
-    $sql ="INSERT INTO users (userID, email, password)
-    VALUES ('$_POST[email]','$_POST[email]','$_POST[password]')";
+    $sql ="INSERT INTO users (userID, password)
+    VALUES ('$_POST[email]','$_POST[password]')";
     $insert_result = mysqli_query($con,$sql);
 
      if (!$insert_result) {

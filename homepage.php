@@ -41,7 +41,7 @@
 <body>
 <?php 
     session_start();
-    if (!isset($_SESSION["user_email"])){
+    if (!isset($_SESSION["userID"])){
       $_SESSION["login_error_message"] = "Please login to continue.";
       header("Location: ./landing_page.php");
     }
@@ -49,7 +49,7 @@
   <header>
     <nav class="navbar navbar-expand-md bg-light navbar-light">
       <a class="navbar-brand" href="#">Road Trip Planner</a>
-      <text class="nav-link" >Logged in as <?php echo $_SESSION["user_email"];?></text>
+      <text class="nav-link" >Logged in as <?php echo $_SESSION["userID"];?></text>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>

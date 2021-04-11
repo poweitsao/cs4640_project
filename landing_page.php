@@ -44,7 +44,7 @@
 <body>
 <?php 
     session_start();
-    if (isset($_SESSION["user_email"])){
+    if (isset($_SESSION["userID"])){
       header("Location: ./homepage.php");
     }
 

@@ -52,10 +52,10 @@
       <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link" href="homepage.html">My Trips</a>
+            <a class="nav-link" href="homepage.php">My Trips</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="landing_page.html">Landing Page</a>
+            <a class="nav-link" href="landing_page.php">Landing Page</a>
           </li>
 
         </ul>
