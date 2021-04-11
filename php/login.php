@@ -15,6 +15,15 @@
 
  $result = mysqli_query($con,$sql);
  session_start();
+
+ if (isset($_SESSION["signup_error_message"])){
+    unset($_SESSION["signup_error_message"]);
+}
+
+if (isset($_SESSION["signup_success"])){
+    unset($_SESSION["signup_success"]);
+}
+
 if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
     // echo $row["email"];

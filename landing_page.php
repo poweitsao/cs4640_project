@@ -124,48 +124,6 @@
     </div>
 
 
-    <!-- <div id="signup-panel" style="display: none">      
-      <form onsubmit="return checkLoginCredentials()" action="./php/login.php" method="post">
-      <h3>Sign up</h3>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" name="email" class="form-control" id="email-input" aria-describedby="emailHelp"
-            placeholder="Enter email">
-        </div>
-        <div class="feedback">
-          <div id="email-msg"></div>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" name="password" class="form-control" id="password-input" placeholder="Password">
-        </div>
-
-
-        <div class="feedback">
-          <div id="password-msg">
-          <?php 
-            if(isset($_SESSION['login_error_message'])) {
-              
-              echo $_SESSION['login_error_message'];
-            }
-            ?>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="exampleInputPassword1">Confirm Password</label>
-          <input type="password" name="password-confirmation" class="form-control" id="password-input-confirmation" placeholder="Confirm Password">
-        </div>
-
-        <div class="submit-button">
-          <button type="button" class="btn btn-secondary" onclick="togglePanel()">Log in</button>
-        </div>
-        <div class="submit-button">
-          <button type="submit" class="btn btn-primary" >Sign up</button>
-        </div>
-
-      </form>
-    </div>   -->
 
   </div>
 
@@ -239,8 +197,6 @@
       var loginButton = document.getElementById("login-button");
       var signUpButton = document.getElementById("signup-button");
 
-      console.log(loginButton.className)
-
       if (panelFormURL.substr(panelFormURL.length - 9) === "login.php"){
         panelForm.action = "./php/signup.php";
         panelTitle.textContent = "Sign up";
@@ -253,8 +209,6 @@
         signUpButton.setAttribute("type", "submit");
         signUpButton.removeAttribute("onclick");
 
-
-
       } else if (panelFormURL.substr(panelFormURL.length - 10) === "signup.php"){
         panelForm.action = "./php/login.php";
         panelTitle.textContent = "Log in";
@@ -266,25 +220,15 @@
 
         loginButton.setAttribute("type", "submit");
         loginButton.removeAttribute("onclick");
-
-
-
       }
-
-
-      // console.log(signUpPanel.style["display"])
-      // if (signUpPanel.style["display"] == "block"){
-      //   signUpPanel.style["display"] = "none";
-      // } else if (signUpPanel.style["display"] == "none"){
-      //   signUpPanel.style["display"] = "block";
-      // }
-
-      // if (loginPanel.style["display"] == "block"){
-      //   loginPanel.style["display"] = "none";
-      // } else if (loginPanel.style["display"] == "none"){
-      //   loginPanel.style["display"] = "block";
-      // }
-
+      var email = document.getElementById("email-input");
+      email.value = "";
+      var password = document.getElementById("password-input");
+      password.value = "";
+      var msg = document.getElementById("email-msg");
+      msg.textContent = "";
+      var msg = document.getElementById("password-msg");
+      msg.textContent = "";
     }
 
   </script>

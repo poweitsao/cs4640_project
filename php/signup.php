@@ -16,15 +16,7 @@
  $result = mysqli_query($con,$sql);
  session_start();
 if (mysqli_num_rows($result) == 0){
-    // $row = mysqli_fetch_array($result);
-    // // echo $row["email"];
-    // $_SESSION["user_email"] = $row["email"];
-    // // echo $_SESSION["user_email"];
-    // if (isset($_SESSION["login_error_message"])){
-    //     unset($_SESSION["login_error_message"]);
-    // }
 
-    // header("Location: ../homepage.php");
     $sql ="INSERT INTO users (userID, email, password)
     VALUES ('$_POST[email]','$_POST[email]','$_POST[password]')";
     $insert_result = mysqli_query($con,$sql);
@@ -46,8 +38,7 @@ if (mysqli_num_rows($result) == 0){
         header("Location: ../landing_page.php");
      }
 } else{
-    // echo "Log in failed. Username and password combination not found. Please try again.";
-    // sleep(5);
+
     $_SESSION["signup_error_message"] = "Email has already been registered";
     $_SESSION["signup_success"] = false;
     header("Location: ../landing_page.php");
