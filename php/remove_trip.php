@@ -9,6 +9,10 @@
     return null;
     }
     $trip_id = intval($_POST['trip_id']);
+
+    $sql="DELETE FROM stops WHERE userID='$_SESSION[userID]' AND tripID = '".$trip_id."'";
+    $result = mysqli_query($con,$sql) or die(mysqli_error($con));
+
     $sql="DELETE FROM trips WHERE userID='$_SESSION[userID]' AND tripID='$trip_id';";
 
     $result = mysqli_query($con,$sql);

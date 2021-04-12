@@ -99,7 +99,7 @@
         // echo " " . $row['Age'];
         // echo "<br>";
         echo "<form class='trip-icon' action='./php/remove_trip.php' method='post'>
-                <a href='trip_details.php'>
+                <a href='trip_details.php?tripid=".$row['tripID']."'>
                   <span class='trip-icon-outer'>
                   
                     <span class='trip-icon-inner' >

@@ -1,3 +1,13 @@
+<?php 
+require_once('./php/library.php');
+$con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
+// Check connection
+if (mysqli_connect_errno()) {
+echo("Can't connect to MySQL Server. Error code: " .
+mysqli_connect_error());
+return null;
+}
+?>
 <!-- Contributors: Po Wei Tsao (pt5rsx), Qasim Qasim (qq4fd) -->
 <!DOCTYPE html>
 <html>
@@ -71,64 +81,61 @@
 
   <div class="main-content">
     <div class="main-content-body">
+
+    <!-- Destinations Destinations Destinations -->
+    <!-- Destinations Destinations Destinations -->
+
+    <?php 
+    
+    $sql="SELECT * FROM stops WHERE tripID='".$_GET['tripid']."' ORDER BY `stopNumber`";
+    $result = mysqli_query($con,$sql) or die(mysqli_error($con));
+
+    while ($row = mysqli_fetch_array($result)) {
+        ?>
       <div class="destination" data-destId="1">
         <div>
-
+        <?php //echo $row['stopNumber']; ?>
         </div>
-        <p>Home</p>
+        <p><?php echo $row['name']; ?></p>
+        <span id="<?php echo $row['stopNumber']; ?>" style="height:0px; line-height:0px; font-size:0px;"><?php echo $row['notes']; ?></span>
+        <a href="php/remove_stop.php?tripID=<?php echo $row['tripID']; ?>&stopNumber=<?php echo $row['stopNumber']; ?>" onclick="return confirm('are you sure you want to delete the stop');" style="color:red; font-size:larger;">x</a>
       </div>
+      
+    <?php
+      } 
+    ?>
 
-      <div class="destination" data-destId="2">
-        <div>
 
-        </div>
-        <p>New Jersey</p>
-      </div>
-
-      <div class="destination" data-destId="3">
-        <div>
-
-        </div>
-        <p>N.J. Airport</p>
-      </div>
-
-      <div class="destination" data-destId="4">
-        <div>
-
-        </div>
-        <p>Miami Airport</p>
-      </div>
-
-      <div class="destination" data-destId="5">
-        <div>
-
-        </div>
-        <p>Miami City</p>
-      </div>
-
-      <div class="destination" data-destId="6">
-        <div>
-
-        </div>
-        <p>Miami South Beach</p>
-      </div>
+      
 
 
     </div>
-    <div class="main-content-card">
-      <div>
-        <p id="dest-name">New Jersey</p>
-        <button id="remove-dest">Remove</button>
+
+      
+      <div class="main-content-card">
+      
+        <div> 
+          <p id="dest-name">Select a Stop</p>
+          <button id="remove-dest">Update Notes</button> <!-- id="remove-dest" -->
+        </div>
+        <form method="post" id="update_notes_form" action="php/update_note.php">
+        <textarea placeholder="Add notes ..." id="update_notes" name="update_notes" style="width: 100%; height:100px; "></textarea>
+        <input type="hidden" id="notes_stopNumber" name="stopNumber" value="0" />
+        <input type="hidden"  name="tripID" value="<?php echo $_GET['tripid']; ?>" />
+        </form>
       </div>
-      <textarea placeholder="Add notes ..."></textarea>
-    </div>
+   
+
   </div>
   <button id="add-dest">Add a destination</button>
 
   <div class="popup-modal hidden">
-    <label for="destname">Destination name:</label><br />
-    <input type="text" id="destname" name="destname"><br />
-    <button id="modal-btn">Create new</button>
+    <form method="post" action="php/add_stop.php?tripid=<?php echo $_GET['tripid']; ?>">
+      <label for="destname">Destination name:</label><br />
+      <input type="text" id="destname" name="destname"><br />
+      <input type="hidden" id="tripId" name="tripid" value="<?php echo $_GET['tripid']; ?>" /><br />
+      <button type="submit">Create new</button> <!-- id="modal-btn" -->
+    </form>
   </div>
 
 

@@ -24,17 +24,24 @@ function add_destination(data) {
 }
 
 function create_deleter() {
-  if (current_destination == null) return;
-  let elem = document.querySelector(`div.destination[data-destId="${current_destination}"]`)
-  if (elem) {
-    elem.remove();
-  }
+  // if (current_destination == null) return;
+  // let elem = document.querySelector(`div.destination[data-destId="${current_destination}"]`)
+  // if (elem) {
+  //   elem.remove();
+  // }
+  document.getElementById('update_notes_form').submit();
+  
 }
 
 function click_handler(elem) {
   current_destination = elem.dataset.destid;
   let name = elem.querySelector('p').innerText;
+  let notes = elem.querySelector('span').innerText;
+  let stopNumber = elem.querySelector('span').id;
+  console.log(notes+' -- '+stopNumber);
   document.getElementById('dest-name').innerText = name;
+  document.getElementById('notes_stopNumber').value = stopNumber;
+  document.getElementById('update_notes').value = notes;
 }
 
 
@@ -45,16 +52,16 @@ document.querySelectorAll('div.destination').forEach((elem) => {
   })
 })
 
-document.getElementById('remove-dest').addEventListener('click', () => {
-  create_deleter();
-})
+ document.getElementById('remove-dest').addEventListener('click', () => {
+   create_deleter();
+ })
 
-document.getElementById('modal-btn').addEventListener('click', () => {
-  let name = document.getElementById('destname').value;
-  add_destination({
-    "destination_name": name
-  });
-})
+// document.getElementById('modal-btn').addEventListener('click', () => {
+//   let name = document.getElementById('destname').value;
+//   add_destination({
+//     "destination_name": name
+//   });
+// })
 
 document.getElementById('add-dest').addEventListener('click', () => {
   document.querySelector('.popup-modal').classList.toggle('hidden');
