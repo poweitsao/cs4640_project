@@ -34,8 +34,8 @@
   <!-- <link rel="stylesheet" href="path-to-your-file/bootstrap.min.css" /> -->
 
   <!-- include your CSS -->
-  <link rel="stylesheet" href="./stylesheets/trips_details.css" />
-  <link rel="stylesheet" href="./stylesheets/styles.css" />
+  <!-- <link rel="stylesheet" href="./stylesheets/trips_details.css" />
+  <link rel="stylesheet" href="./stylesheets/styles.css" /> -->
   <style>
     <?php include './stylesheets/trips_details.css'; ?>
     <?php include './stylesheets/styles.css'; ?>

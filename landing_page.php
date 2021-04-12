@@ -182,11 +182,6 @@
       return (emailValid && passwordValid);
     }
 
-    var checkSignupInput = function () {
-      var password = document.getElementById("password-input");
-      var passwordConfirmation = document.getElementById("password-input-confirmation");
-      return (password.value === passwordConfirmation.value && checkLoginCredentials())
-    }
 
     var togglePanel = function () {
       // var signUpPanel = document.getElementById("signup-panel");

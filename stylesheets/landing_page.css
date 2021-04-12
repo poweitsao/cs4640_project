@@ -56,3 +56,8 @@ form{
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.submit-button{
+    margin-left: 5px;
+    margin-right: 5px;
+}
