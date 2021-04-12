@@ -98,7 +98,7 @@ return null;
         </div>
         <p><?php echo $row['name']; ?></p>
         <span id="<?php echo $row['stopNumber']; ?>" style="height:0px; line-height:0px; font-size:0px;"><?php echo $row['notes']; ?></span>
-        <a href="php/remove_stop.php?tripID=<?php echo $row['tripID']; ?>&stopNumber=<?php echo $row['stopNumber']; ?>" onclick="return confirm('are you sure you want to delete the stop');" style="color:red; font-size:larger;">x</a>
+        <a href="php/remove_stop.php?tripID=<?php echo $row['tripID']; ?>&stopNumber=<?php echo $row['stopNumber']; ?>" onclick="return confirm('Are you sure you want to delete this stop?');" style="color:red; font-size:larger;">x</a>
       </div>
       
     <?php
