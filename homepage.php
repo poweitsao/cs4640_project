@@ -144,7 +144,7 @@
             <input type="text" class="form-control" name="new_trip_name" id="new_trip_name" placeholder="Enter your trip's name">
           </div>
           <div>
-            <button type="button" class="btn btn-primary" style="width: 90px; margin: 5px;">Create!</button>
+            <button type="submit" class="btn btn-primary" style="width: 90px; margin: 5px;">Create!</button>
             <button type="button" class="btn btn-secondary" onclick="toggleNewTripForm()" style="width: 90px; margin: 5px;">Cancel</button>
             <!-- <svg type="submit" xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-x'
                     viewBox='0 0 16 16' class='remove-button'>
