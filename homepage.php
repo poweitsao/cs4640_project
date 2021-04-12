@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
+
+
+
   <!-- 
   Use a link tag to link an external resource.
   A rel (relationship) specifies relationship between the current document and the linked resource. 
@@ -34,14 +37,15 @@
   <!-- <link rel="stylesheet" href="path-to-your-file/bootstrap.min.css" /> -->
 
   <!-- include your CSS -->
-  <link rel="stylesheet" href="./stylesheets/homepage.css" />
-
+  <style>
+    <?php include './stylesheets/homepage.css'; ?>
+  </style>
 </head>
 
 <body>
 <?php 
     session_start();
-    if (!isset($_SESSION["user_email"])){
+    if (!isset($_SESSION["userID"])){
       $_SESSION["login_error_message"] = "Please login to continue.";
       header("Location: ./landing_page.php");
     }
@@ -49,7 +53,7 @@
   <header>
     <nav class="navbar navbar-expand-md bg-light navbar-light">
       <a class="navbar-brand" href="#">Road Trip Planner</a>
-      <text class="nav-link" >Logged in as <?php echo $_SESSION["user_email"];?></text>
+      <text class="nav-link" >Logged in as <?php echo $_SESSION["userID"];?></text>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -74,106 +78,85 @@
   </header>
 
   <div class="container">
-
+    
     <div class="trip-icon-grid">
+    <?php
+      require_once('./php/library.php');
+      $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
+      // Check connection
+      if (mysqli_connect_errno()) {
+      echo("Can't connect to MySQL Server. Error code: " .
+      mysqli_connect_error());
+      return null;
+      }
+      // Form the SQL query (a SELECT query)
+      $sql="SELECT * FROM trips WHERE userID='$_SESSION[userID]'";
+      $result = mysqli_query($con,$sql);
+      // Print the data from the table row by row
+      while($row = mysqli_fetch_array($result)) {
+        // echo $row['FirstN'];
+        // echo " " . $row['LastN'];
+        // echo " " . $row['Age'];
+        // echo "<br>";
+        echo "<form class='trip-icon' action='./php/remove_trip.php' method='post'>
+                <a href='trip_details.php'>
+                  <span class='trip-icon-outer'>
+                  
+                    <span class='trip-icon-inner' >
+                      <div class='trip-icon-text-box'>
+                        <p class='trip-icon-text'>" . $row['name'][0] . "</p>" 
+                    . "</div>
+                    </span>
+                  </span>
+                  </span>
+                  <div>
+                    <p class='trip-icon-label' >" . $row['name'] . "</p>"
+              ."  </div>
+                </a>
+                <input style='display:none;' name='trip_id' value=" . $row['tripID'] . "></input>
+                <div onclick='removeButtonHandler(this)' type='submit'>
+                  <svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-x'
+                    viewBox='0 0 16 16' class='remove-button'>
+                    <path
+                      d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z' />
+                  </svg>
+                </div>
+                
+              </form>";
 
-      <div class="trip-icon">
-        <a href="trip_details.php">
-          <span class="trip-icon-outer">
-            <span class="trip-icon-inner" onclick="clickHandler()">
-              <div class="trip-icon-text-box">
-                <p class="trip-icon-text">T</p>
-              </div>
-            </span>
-          </span>
-          </span>
-          <div>
-            <p class="trip-icon-label">Trip 1</p>
-          </div>
-        </a>
-
-
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x"
-          viewBox="0 0 16 16" onclick="removeButtonHandler(this)" class="remove-button">
-          <path
-            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </div>
-
-      <div class="trip-icon">
-        <a href="trip_details.php">
-          <span class="trip-icon-outer">
-            <span class="trip-icon-inner" onclick="clickHandler()">
-              <div class="trip-icon-text-box">
-                <p class="trip-icon-text">T</p>
-              </div>
-            </span>
-          </span>
-          </span>
-          <div>
-            <p class="trip-icon-label">Trip 2</p>
-          </div>
-        </a>
-
-
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x"
-          viewBox="0 0 16 16" onclick="removeButtonHandler(this)" class="remove-button">
-          <path
-            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </div>
-
-      <div class="trip-icon">
-        <a href="trip_details.php">
-          <span class="trip-icon-outer">
-            <span class="trip-icon-inner" onclick="clickHandler()">
-              <div class="trip-icon-text-box">
-                <p class="trip-icon-text">T</p>
-              </div>
-            </span>
-          </span>
-          </span>
-          <div>
-            <p class="trip-icon-label">Trip 3</p>
-          </div>
-        </a>
-
-
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x"
-          viewBox="0 0 16 16" onclick="removeButtonHandler(this)" class="remove-button">
-          <path
-            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </div>
-
-      <div class="trip-icon">
-        <a href="trip_details.php">
-          <span class="trip-icon-outer">
-            <span class="trip-icon-inner" onclick="clickHandler()">
-              <div class="trip-icon-text-box">
-                <p class="trip-icon-text">T</p>
-              </div>
-            </span>
-          </span>
-          </span>
-          <div>
-            <p class="trip-icon-label">Trip 4</p>
-          </div>
-        </a>
-
-
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x"
-          viewBox="0 0 16 16" onclick="removeButtonHandler(this)" class="remove-button">
-          <path
-            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </div>
+      }
+      mysqli_close($con);
+    ?>
+    
       
     </div>
 
-    
+    <div class="new-trip-button">
+      <button class="btn btn-primary" onclick="toggleNewTripForm()">Add a new Trip</button>
+    </div>
 
+    <div id="new-trip-form-container" style="display: none;">
+      <div class="card" style="padding: 20px; width: 300px;">
 
+        <form onsubmit="return  checkTripName()" id="new-trip-form" action="./php/create_trip.php" method="post" style="display: flex; flex-direction: column; justify-content: center; align-content: center;">
+          <div class="form-group">
+            <label >Trip Name</label>
+            <input type="text" class="form-control" name="new_trip_name" id="new_trip_name" placeholder="Enter your trip's name">
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary" style="width: 90px; margin: 5px;">Create!</button>
+            <button type="button" class="btn btn-secondary" onclick="toggleNewTripForm()" style="width: 90px; margin: 5px;">Cancel</button>
+            <!-- <svg type="submit" xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-x'
+                    viewBox='0 0 16 16' class='remove-button'>
+                    <path
+                      d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z' />
+                  </svg> -->
+          </div>
+        </form>
+        <div id="new-trip-form-error-msg" style="margin: 5px; color: red;"> 
+        </div>
+        </div>  
+    </div>
 
   </div>
 
@@ -185,8 +168,38 @@
     removeButtonHandler = (element) => {
 
       element.parentElement.style.display = 'none';
+      element.parentElement.submit();
+
+
+
     }
 
+
+    var toggleNewTripForm = () =>{
+      var newTripForm = document.getElementById("new-trip-form-container");
+      if (newTripForm.style.display === "none"){
+        newTripForm.style.display = "block";
+      } else{
+        newTripForm.style.display = "none";
+        setTripFormErrorMsg("")
+
+      }
+    }
+
+    var setTripFormErrorMsg = (msg) =>{
+      var msgDiv = document.getElementById("new-trip-form-error-msg");
+      msgDiv.textContent = msg;
+    }
+
+    var checkTripName = () =>{
+      var tripName = document.getElementById("new_trip_name");
+      if (tripName.value.length === 0){
+        setTripFormErrorMsg("Trip name cannot be empty.")
+        return false
+      } else{
+        return true;
+      }
+    }
 
   </script>
 
@@ -199,19 +212,7 @@
     crossorigin="anonymous"></script>
 
 
-  <!-- for local -->
-  <!-- <script src="jquery.min.js"></script> -->
-  <!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
 
-
-  <!--  uncomment the following code when customizing your page -->
-  <!-- <script>
-  // document ready event is fired when DOM has been loaded 
-  $(document).ready(function() {
-	 // do DOM manipulation, set header's height
-     $('.header').height($(window).height()/2.5);     
-   })
-  </script>  -->
 
 
 </body>

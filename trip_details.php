@@ -34,9 +34,12 @@
   <!-- <link rel="stylesheet" href="path-to-your-file/bootstrap.min.css" /> -->
 
   <!-- include your CSS -->
-  <link rel="stylesheet" href="./stylesheets/trips_details.css" />
-  <link rel="stylesheet" href="./stylesheets/styles.css" />
-  <link rel="stylesheet" href="./styles.css" />
+  <!-- <link rel="stylesheet" href="./stylesheets/trips_details.css" />
+  <link rel="stylesheet" href="./stylesheets/styles.css" /> -->
+  <style>
+    <?php include './stylesheets/trips_details.css'; ?>
+    <?php include './stylesheets/styles.css'; ?>
+  </style>
 
 </head>
 
@@ -52,10 +55,10 @@
       <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link" href="homepage.html">My Trips</a>
+            <a class="nav-link" href="homepage.php">My Trips</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="landing_page.html">Landing Page</a>
+            <a class="nav-link" href="landing_page.php">Landing Page</a>
           </li>
 
         </ul>

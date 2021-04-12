@@ -2,6 +2,7 @@
 
 body {
     background-color: #f3f7fe;
+    /* background-color:black; */
 }
 
 .container{
@@ -13,14 +14,28 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    padding-bottom: 200px;
 }
 
 .form-group{
     width:90%;
 }
 
-.submit-button{
+.login-button{
     padding:10px;
+}
+
+.signup-button{
+    padding:10px;
+}
+
+.signup-msg{
+    padding: 10px;
+    font-size: 1em;
+    color: black;
+    width: 400px;
+    display:flex;
+    justify-content: center;
 }
 
 .feedback{
@@ -40,4 +55,9 @@ form{
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.submit-button{
+    margin-left: 5px;
+    margin-right: 5px;
 }
