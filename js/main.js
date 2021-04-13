@@ -1,3 +1,5 @@
+//<!-- Contributors: Po Wei Tsao (pt5rsx), Qasim Qasim (qq4fd) -->
+
 console.log('main.js');
 let current_destination= null;
 let id_val = 7;

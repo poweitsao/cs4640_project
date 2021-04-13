@@ -1,12 +1,19 @@
+<!-- Contributors: Po Wei Tsao (pt5rsx), Qasim Qasim (qq4fd) -->
+
 <?php
  include_once("./library.php"); // To connect to the database
+ if(true){
+    $_GET = $_POST;
+ }
+
  $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
  // Check connection
  if (mysqli_connect_errno()){
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
  }
- // Form the SQL query (an INSERT query)
- $sql="SELECT * FROM users WHERE userID='$_POST[email]' AND password='$_POST[password]'";
+
+
+ $sql="SELECT * FROM users WHERE userID='$_GET[email]' AND password='$_GET[password]'";
 
 
  if (!mysqli_query($con,$sql)) {

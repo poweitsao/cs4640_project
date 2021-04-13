@@ -1,3 +1,5 @@
+<!-- Contributors: Po Wei Tsao (pt5rsx), Qasim Qasim (qq4fd) -->
+
 <?php 
     require_once('./library.php');
     $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);

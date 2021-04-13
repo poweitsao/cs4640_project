@@ -1,0 +1,40 @@
+Contributors: Po Wei Tsao (pt5rsx), Qasim Qasim (qq4fd)
+
+
+STOPS TABLE
+"tripID","userID","stopNumber","notes","name"
+"1","newtester@google.com","1",,"destination 1"
+"1","newtester@google.com","3",,"3"
+"1","newtester@google.com","4","my notes on 4","4"
+"1","newtester@google.com","5","my notes on 5
+"2","qasim@virginia.edu","1","Uber to FLL","Airport"
+"2","newtester@google.com","2","asdfasdfasdfasd","trip 2 dest 2"
+"2","qasim@virginia.edu","2","Buy Beach Towels","Beach"
+"2","qasim@virginia.edu","3","Buy some drinks
+"25","newtrip@gmail.com","1","lol","lol"
+"25","po@gmail.com","1","my notesssss","cville"
+
+
+TRIPS TABLE
+"tripID","name","userID"
+"1","my new trip","newtester@google.com"
+"1","new trip","newtrip@gmail.com"
+"1","Portland","qasim@gmail.com"
+"1","test create","testinggggg@google.com"
+"2","my trip 2","newtester@google.com"
+"2","Miami","qasim@virginia.edu"
+"25","trip 3","po@gmail.com"
+"40","trip2","pt5rsx@virginia.edu"
+
+USERS TABLE
+"userID","password"
+"newtester@google.com","123123"
+"newtrip@gmail.com","123123"
+"po@gmail.com","hello there"
+"poweitsao@gmail.com","qweqwe"
+"pt5rsx@virginia.edu","qqqqqq"
+"qasim@gmail.com","qasim"
+"qasim@virginia.edu","qasim123"
+"testemail@google.com","123123123"
+"testemail@google.com.tw","123123"
+"testinggggg@google.com","123123"

@@ -1,3 +1,5 @@
+<!-- Contributors: Po Wei Tsao (pt5rsx), Qasim Qasim (qq4fd) -->
+
 <?php 
 require_once('./php/library.php');
 $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
@@ -9,7 +11,6 @@ mysqli_connect_error());
 return null;
 }
 ?>
-<!-- Contributors: Po Wei Tsao (pt5rsx), Qasim Qasim (qq4fd) -->
 <!DOCTYPE html>
 <html>
 
