@@ -2,6 +2,7 @@
 require_once('./php/library.php');
 $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
 // Check connection
+session_start();
 if (mysqli_connect_errno()) {
 echo("Can't connect to MySQL Server. Error code: " .
 mysqli_connect_error());
@@ -87,7 +88,7 @@ return null;
 
     <?php 
     
-    $sql="SELECT * FROM stops WHERE tripID='".$_GET['tripid']."' ORDER BY `stopNumber`";
+    $sql="SELECT * FROM stops WHERE tripID='".$_GET['tripid']."' AND userID='$_SESSION[userID]' ORDER BY `stopNumber`";
     $result = mysqli_query($con,$sql) or die(mysqli_error($con));
 
     while ($row = mysqli_fetch_array($result)) {
