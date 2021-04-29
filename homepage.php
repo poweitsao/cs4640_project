@@ -132,7 +132,7 @@
     </div>
 
     <div class="new-trip-button">
-      <button class="btn btn-primary" onclick="toggleNewTripForm()">Add a new Trip</button>
+      <button class="btn btn-primary" onclick="goToAngular()">Add a new Trip</button>
     </div>
 
     <div id="new-trip-form-container" style="display: none;">
@@ -145,7 +145,7 @@
           </div>
           <div>
             <button type="submit" class="btn btn-primary" style="width: 90px; margin: 5px;">Create!</button>
-            <button type="button" class="btn btn-secondary" onclick="toggleNewTripForm()" style="width: 90px; margin: 5px;">Cancel</button>
+            <button type="button" class="btn btn-secondary" onclick="goToAngular(<?php session_start();echo $_SESSION['userID'];?>)" style="width: 90px; margin: 5px;">Cancel</button>
             <!-- <svg type="submit" xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-x'
                     viewBox='0 0 16 16' class='remove-button'>
                     <path
@@ -157,12 +157,12 @@
         </div>
         </div>  
     </div>
-
+      <div id="userID" style="display: none;"><?php echo $_SESSION["userID"];?></div>
   </div>
 
   <script>
     var clickHandler = () => {
-      console.log("clicked")
+      console.log("clicked");
     }
 
     removeButtonHandler = (element) => {
@@ -174,6 +174,11 @@
 
     }
 
+    var goToAngular = () =>{
+      var userID = document.getElementById("userID");
+      // console.log(userID.textContent);
+      window.location.replace("http://localhost:4200/" + userID.textContent);
+    }
 
     var toggleNewTripForm = () =>{
       var newTripForm = document.getElementById("new-trip-form-container");

@@ -1,6 +1,6 @@
-<!-- Contributors: Po Wei Tsao (pt5rsx), Qasim Qasim (qq4fd) -->
 
 <?php
+//Contributors: Po Wei Tsao (pt5rsx), Qasim Qasim (qq4fd)
 if($_SERVER['HTTP_HOST'] == 'localhost' && 1 == 2){
     $SERVER = 'localhost';
     $USERNAME = 'root';
