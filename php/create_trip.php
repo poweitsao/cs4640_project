@@ -39,7 +39,7 @@
 
 $trip_id = $max_trip_id + 1;
 // echo $_POST["new-trip-name"];
-$insert_sql = "INSERT INTO trips (tripID, name, userID) VALUES ($trip_id, '$request[name]', '$request[userID]');";
+$insert_sql = "INSERT INTO trips (tripID, name, icon_color, userID) VALUES ($trip_id, '$request[name]', '$request[color]', '$request[userID]');";
 $insert_result = mysqli_query($con,$insert_sql);
 
 // header("Location: ../homepage.php");
