@@ -100,11 +100,11 @@
         // echo "<br>";
         echo "<form class='trip-icon' action='./php/remove_trip.php' method='post'>
                 <a href='trip_details.php?tripid=".$row['tripID']."'>
-                  <span class='trip-icon-outer'>
+                  <span class='trip-icon-outer' style='background-color:".$row['icon_color']."'>
                   
                     <span class='trip-icon-inner' >
                       <div class='trip-icon-text-box'>
-                        <p class='trip-icon-text'>" . $row['name'][0] . "</p>" 
+                        <p class='trip-icon-text' style='color:".$row['icon_color']."'>" . $row['name'][0] . "</p>" 
                     . "</div>
                     </span>
                   </span>
